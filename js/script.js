@@ -32,8 +32,12 @@ const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, get
         generators.forEach(() => {
             const randomValue = generators[Math.floor(Math.random() * generators.length)]();
             
-            console.log(randomValue);
+            password += randomValue;
         });
+
+        password = password.slice(0, passwordLength);
+        generatedPasswordElement.style.display="block";
+        generatedPasswordElement.querySelector("h4").innerText = password;
     }
 
     password = password.slice(0, passwordLength);
